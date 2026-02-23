@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Romagnoli Cleaning Services</title>
+  <meta name="description"
+        content="Recent cleaning work and transformations by Romagnoli Cleaning Services in Oxford and surrounding areas.">
+
+  <link rel="stylesheet" href="./gallery.css" />
+</head>
+
+<body>
+  <header class="header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="./index.html">
+        <img src="./Logo.jpeg" alt="Romagnoli Cleaning Services Logo">
+        <span>Romagnoli Cleaning Services</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a class="active" href="./gallery.html">Gallery</a>
+
+        <select id="languageToggle">
+          <option value="en">EN</option>
+          <option value="pt">PT-BR</option>
+          <option value="it">IT</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <section class="container hero">
+    <h1>Our Recent Work</h1>
+    <p>Explore our recent transformations. Every detail, every finish, completed to the highest standard.</p>
+  </section>
+
+  <main class="container">
+    <div class="grid" id="galleryGrid"></div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" alt="Cleaning work photo" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container foot">
+      <small>© <span id="year"></span> Romagnoli Cleaning Services</small>
+      <small class="credit">
+        Website created by
+        <a href="https://shannonwiseanalytics.com/" target="_blank" rel="noopener noreferrer">Shannon Wise</a>
+      </small>
+    </div>
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Language toggle affects captions (optional fields)
+    let currentLang = "en";
+    const langToggle = document.getElementById("languageToggle");
+    langToggle.addEventListener("change", (e) => {
+      currentLang = e.target.value;
+      renderGallery(window.__galleryData || []);
+    });
+
+    // Lightbox elements
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxBackdrop = document.getElementById("lightboxBackdrop");
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption || "";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxImg.src = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxBackdrop.addEventListener("click", closeLightbox);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+    });
+
+    function formatDate(dateStr) {
+      if (!dateStr) return "";
+      const d = new Date(dateStr);
+      return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+    }
+
+    // Pull translated caption if present
+    function getCaption(item) {
+      // supports either:
+      // caption: "..."
+      // OR captions: { en:"", pt:"", it:"" }
+      if (item.captions && item.captions[currentLang]) return item.captions[currentLang];
+      return item.caption || "";
+    }
+
+    function renderGallery(data) {
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+
+      const items = Array.isArray(data) ? data.slice().reverse() : [];
+
+      items.forEach((item) => {
+        const post = document.createElement("article");
+        post.className = "post";
+
+        const img = document.createElement("img");
+        img.src = item.image || "";
+        img.alt = item.alt || "Cleaning work photo";
+        img.loading = "lazy";
+
+        const captionText = getCaption(item);
+
+        const caption = document.createElement("p");
+        caption.className = "caption";
+        caption.textContent = captionText;
+
+        const badge = document.createElement("div");
+        badge.className = "post-badge";
+        badge.textContent = item.service || "";
+
+        const date = document.createElement("div");
+        date.className = "post-date";
+        date.textContent = item.date ? formatDate(item.date) : "";
+
+        img.addEventListener("click", () => openLightbox(img.src, captionText));
+
+        post.appendChild(img);
+        if (item.service) post.appendChild(badge);
+        if (item.date) post.appendChild(date);
+        post.appendChild(caption);
+
+        grid.appendChild(post);
+      });
+    }
+
+    // Load JSON
+    fetch("./gallery.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load gallery.json");
+        return res.json();
+      })
+      .then((data) => {
+        window.__galleryData = data;
+        renderGallery(data);
+      })
+      .catch((err) => console.error(err));
+  </script>
+</body>
+</html>

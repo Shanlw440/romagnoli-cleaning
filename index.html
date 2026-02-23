@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romagnoli Cleaning Services | Oxford</title>
+
+    <link rel="stylesheet" href="./index.css" />
+
+    <!-- ✅ Supabase - load BEFORE our inline script (no defer) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" id="siteHeader">
+      <div class="container">
+        <div class="nav">
+          <a class="brand" href="#top">
+            <img src="./Logo.jpeg" alt="Romagnoli Cleaning Services Logo" />
+            <span id="brandName">Romagnoli Cleaning Services</span>
+          </a>
+
+          <nav class="nav-links">
+            <button type="button" onclick="scrollToSection('services')" id="navServices">Services</button>
+            <button type="button" onclick="scrollToSection('testimonials')" id="navTestimonials">Reviews</button>
+            <button type="button" onclick="scrollToSection('areas')" id="navAreas">Areas</button>
+            <button type="button" onclick="scrollToSection('contact')" id="navContact">Contact</button>
+
+            <a class="nav-link" href="./gallery.html" id="navGallery">Gallery</a>
+
+            <!-- ✅ Language (homepage too) -->
+            <select id="langSelect" class="lang-select" aria-label="Language">
+              <option value="en">EN</option>
+              <option value="it">IT</option>
+              <option value="pt">PT-BR</option>
+            </select>
+
+            <button type="button" class="cta" onclick="waGeneral()" id="navCta">WhatsApp Quote</button>
+          </nav>
+
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" type="button">☰</button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <button type="button" onclick="scrollToSection('services')" id="mServices">Services</button>
+          <button type="button" onclick="scrollToSection('testimonials')" id="mTestimonials">Reviews</button>
+          <button type="button" onclick="scrollToSection('areas')" id="mAreas">Areas</button>
+          <button type="button" onclick="scrollToSection('contact')" id="mContact">Contact</button>
+          <a class="mobile-link" href="./gallery.html" id="mGallery">Gallery</a>
+
+          <select id="langSelectMobile" class="lang-select mobile-lang" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="it">IT</option>
+            <option value="pt">PT-BR</option>
+          </select>
+
+          <button type="button" class="cta full" onclick="waGeneral()" id="mCta">WhatsApp Quote</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO (Black + Gold Sparkles) -->
+    <section id="top" class="hero section-dark luxe-sparkle">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="pill" id="pillText">Luxury finish • Local service</div>
+
+            <h1>
+              <span id="heroLine1">A Cleaner Home,</span><br />
+              <span class="hero-strong" id="heroLine2">A Happier Life</span>
+            </h1>
+
+            <p class="lead" id="heroLead">
+              Premium cleaning services with a detail-focused finish. Message us on WhatsApp for availability and quotes.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn primary" type="button" onclick="waGeneral()">
+                <span class="btn-flex">
+                  <span class="wa-ico" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="currentColor">
+                      <path
+                        d="M19.11 17.67c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.18-1.34-.8-.72-1.34-1.61-1.5-1.88-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.52-.44-.45-.61-.46l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.98 2.62 1.11 2.8.14.18 1.93 2.94 4.67 4.12.65.28 1.16.45 1.55.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.82-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
+                      />
+                      <path
+                        d="M26.67 5.33C23.78 2.44 19.94.86 15.86.86 7.5.86.7 7.66.7 16.02c0 2.67.7 5.28 2.02 7.58L.6 31.14l7.74-2.04a15.2 15.2 0 0 0 7.52 1.92h.01c8.36 0 15.16-6.8 15.16-15.16 0-4.08-1.59-7.92-4.36-10.53zM15.86 28.4h-.01c-2.25 0-4.45-.6-6.37-1.73l-.46-.27-4.59 1.21 1.23-4.47-.3-.46a12.48 12.48 0 0 1-1.97-6.66c0-6.9 5.61-12.5 12.51-12.5 3.35 0 6.5 1.3 8.86 3.67a12.4 12.4 0 0 1 3.66 8.83c0 6.9-5.61 12.5-12.5 12.5z"
+                      />
+                    </svg>
+                  </span>
+                  <span id="heroBtnQuoteText">WhatsApp for a Quote</span>
+                </span>
+              </button>
+
+              <button class="btn" type="button" onclick="scrollToSection('services')" id="heroBtnServices">View Services</button>
+              <a class="btn outline" href="./gallery.html" id="heroBtnGallery">View Gallery</a>
+            </div>
+
+            <div class="trust-row">
+              <span id="trust1">Trusted local</span>
+              <span class="sep">•</span>
+              <span id="trust2">Luxury finish</span>
+              <span class="sep">•</span>
+              <span id="trust3">Flexible requests</span>
+            </div>
+          </div>
+
+          <div class="hero-image" aria-label="Hero image">
+            <img src="./images/hero.jpg" alt="Luxury clean home" />
+            <div class="badge">
+              <div class="badge-icon"></div>
+              <div>
+                <div class="badge-big" id="badgeBig">Oxford</div>
+                <small id="badgeSmall">and surrounding areas</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES (White) -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">SERVICES</div>
+          <h2 id="servicesTitle">Cleaning services</h2>
+          <p id="servicesSub">Tap a service to send a WhatsApp message.</p>
+        </div>
+
+        <h3 class="subheading" id="domesticTitle">Domestic</h3>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="card-top"><div class="icon">🏠</div><h4>End of Tenancy Cleaning</h4></div>
+            <p>Deep, thorough clean for check-outs and handovers.</p>
+            <button class="card-cta" type="button" onclick="waService('tenancy')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">🍳</div><h4>Oven & Extractor Fan</h4></div>
+            <p>Professional degrease and polish for ovens and extractor fans.</p>
+            <button class="card-cta" type="button" onclick="waService('oven')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">🧼</div><h4>Carpet Cleaning</h4></div>
+            <p>Bring carpets back to life with a fresh, clean finish.</p>
+            <button class="card-cta" type="button" onclick="waService('carpets')">Enquire on WhatsApp</button>
+          </div>
+        </div>
+
+        <div class="grid3 mt">
+          <div class="card">
+            <div class="card-top"><div class="icon">🪟</div><h4>Window Cleaning</h4></div>
+            <p>Crystal-clear windows for a brighter home.</p>
+            <button class="card-cta" type="button" onclick="waService('windows')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">👕</div><h4>Ironing</h4></div>
+            <p>Neat, crisp ironing so you get your time back.</p>
+            <button class="card-cta" type="button" onclick="waService('ironing')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">✨</div><h4>Regular Cleaning</h4></div>
+            <p>Weekly, fortnightly or monthly cleans, tailored to you.</p>
+            <button class="card-cta" type="button" onclick="waService('regular')">Enquire on WhatsApp</button>
+          </div>
+        </div>
+
+        <h3 class="subheading mt2" id="commercialTitle">Commercial</h3>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="card-top"><div class="icon">🏢</div><h4>Office Cleaning</h4></div>
+            <p>Professional cleaning for offices and workspaces, tailored to your schedule.</p>
+            <button class="card-cta" type="button" onclick="waService('office')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">🏫</div><h4>Schools & Educational Facilities</h4></div>
+            <p>Safe and thorough cleaning for educational environments with a hygiene-first approach.</p>
+            <button class="card-cta" type="button" onclick="waService('schools')">Enquire on WhatsApp</button>
+          </div>
+
+          <div class="card">
+            <div class="card-top"><div class="icon">🏬</div><h4>Commercial & Businesses</h4></div>
+            <p>Cleaning solutions for shops, salons, clinics and commercial properties.</p>
+            <button class="card-cta" type="button" onclick="waService('commercial')">Enquire on WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS (Black + Gold + Sparkles) -->
+    <section id="testimonials" class="section section-dark luxe-sparkle reviews-dark">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">REVIEWS</div>
+          <h2 class="reviews-title" id="reviewsTitle">Customer Reviews</h2>
+          <p class="reviews-sub" id="reviewsSub">Leave a review below. It will appear live on the website.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="reviews-form card-lite">
+            <h3 class="form-title" id="writeReviewTitle">Write a Review</h3>
+
+            <!-- ✅ action prevents the “jump to top” even if JS breaks -->
+            <form id="reviewForm" class="form" action="javascript:void(0);">
+              <label class="label">
+                <span id="labelName">Your name</span>
+                <input id="reviewName" type="text" placeholder="Your name" maxlength="60" required />
+              </label>
+
+              <label class="label">
+                <span id="labelRating">Rating</span>
+                <select id="reviewRating" required>
+                  <option value="5">★★★★★ (5)</option>
+                  <option value="4">★★★★☆ (4)</option>
+                  <option value="3">★★★☆☆ (3)</option>
+                  <option value="2">★★☆☆☆ (2)</option>
+                  <option value="1">★☆☆☆☆ (1)</option>
+                </select>
+              </label>
+
+              <label class="label">
+                <span id="labelReview">Your review</span>
+                <textarea id="reviewMessage" rows="5" placeholder="Write your review..." maxlength="500" required></textarea>
+                <small class="hint"><span id="charCount">0</span>/500</small>
+              </label>
+
+              <button class="btn primary full" type="submit" id="reviewSubmitBtn">Submit Review</button>
+              <div id="reviewStatus" class="status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="reviews-list">
+            <div class="list-head">
+              <h3 class="list-title" id="latestReviewsTitle">Latest Reviews</h3>
+              <button class="btn outline small" type="button" id="refreshReviewsBtn">Refresh</button>
+            </div>
+
+            <div id="reviewsContainer" class="review-cards"></div>
+            <div id="reviewsEmpty" class="empty" hidden>No reviews yet. Be the first ✨</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AREAS (White) -->
+    <section id="areas" class="section">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">AREAS</div>
+          <h2 id="areasTitle">Oxford & surrounding areas</h2>
+          <p id="areasSub">We cover Oxford and nearby locations (approx. up to 40 minutes drive).</p>
+        </div>
+
+        <div class="map-wrap map-light">
+          <iframe
+            title="Oxford map"
+            src="https://www.google.com/maps?q=Oxford,UK&output=embed"
+            width="100%"
+            height="420"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (Black + Sparkles) -->
+    <section id="contact" class="section section-dark luxe-sparkle contact-dark">
+      <div class="container">
+        <div class="section-title">
+          <div class="kicker">CONTACT</div>
+          <h2 id="contactTitle">Message us on WhatsApp</h2>
+          <p id="contactSub">WhatsApp is the fastest way to reach us.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info">
+            <b>WhatsApp</b>
+            <span class="info-strong">07955 417208</span>
+          </div>
+
+          <div class="info">
+            <b id="hoursLabel">Hours</b>
+            <span id="hoursValue">Monday – Saturday: 8am – 6pm</span>
+          </div>
+
+          <div class="info">
+            <b id="areaLabel">Service Area</b>
+            <span id="areaValue">Oxford & Surrounding Areas</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px">
+          <button class="btn primary" type="button" onclick="waGeneral()" id="contactBtn">WhatsApp for a Quote</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Footer (WHITE) -->
+    <footer class="footer footer-light">
+      <div class="container foot-row">
+        <div class="foot-brand">
+          <img src="./Logo.jpeg" alt="Logo" />
+          <div>
+            <div class="foot-title" id="footerTitle">Romagnoli Cleaning Services</div>
+            <small id="footerTag">Local cleaning with a luxury finish.</small>
+          </div>
+        </div>
+
+        <button class="cta" type="button" onclick="waGeneral()" id="footerCta">WhatsApp Quote</button>
+      </div>
+
+      <div class="container foot-bottom">
+        <small>© <span id="year"></span> <span id="footerCopy">Romagnoli Cleaning Services</span></small>
+        <small class="credit">
+          <span id="footerCreditText">Website created by</span>
+          <a href="https://shannonwiseanalytics.com/" target="_blank" rel="noopener noreferrer">Shannon Wise</a>
+        </small>
+      </div>
+    </footer>
+
+    <script>
+      // ========= CONFIG =========
+      const WHATSAPP_NUMBER = "447955417208";
+
+      // ========= Supabase (LIVE REVIEWS) =========
+      const SUPABASE_URL = "https://ktenyzxrelixpwwwjhfg.supabase.co";
+      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt0ZW55enhyZWxpeHB3d3dqaGZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4NDI3MTcsImV4cCI6MjA4NzQxODcxN30.HDRbn4qzegUdNJqXHMnNJjw4cBNNkB7vfNCRGAMmUDU"; // eyJ...
+
+      // We create ONE client, ONCE.
+      let sb = null;
+
+      function initSupabase() {
+        const url = (SUPABASE_URL || "").trim();
+        const key = (SUPABASE_ANON_KEY || "").trim();
+        if (!url || !key) return null;
+        if (!window.supabase || typeof window.supabase.createClient !== "function") return null;
+        return window.supabase.createClient(url, key);
+      }
+
+      // ========= WhatsApp =========
+      function openWhatsApp(message) {
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      window.waGeneral = function () {
+        openWhatsApp(
+          "Hi Romagnoli Cleaning Services! I'd like a quote please. Service needed: _____. Postcode: _____. Property size: _____. Preferred date/time: _____."
+        );
+      };
+
+      window.waService = function (key) {
+        const messages = {
+          tenancy:
+            "Hi Romagnoli Cleaning Services! I'd like an End of Tenancy clean. Postcode: _____. Bedrooms/bathrooms: _____. Preferred date: _____. Any extras (oven/carpets): _____.",
+          oven:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for Oven + Extractor Fan cleaning. Postcode: _____. Oven type/size: _____. Preferred date: _____.",
+          carpets:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for Carpet Cleaning. Postcode: _____. Number of rooms: _____. Any stains: _____. Preferred date: _____.",
+          windows:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for Window Cleaning. Postcode: _____. Number of windows: _____. Inside/outside: _____. Preferred date: _____.",
+          ironing:
+            "Hi Romagnoli Cleaning Services! I'd like help with Ironing. Postcode: _____. Estimated amount (bags/items): _____. Preferred day/time: _____.",
+          regular:
+            "Hi Romagnoli Cleaning Services! I'd like Regular Cleaning. Postcode: _____. Frequency (weekly/fortnightly/monthly): _____. Property size: _____. Preferred day/time: _____.",
+          office:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for Office Cleaning. Business type: _____. Location: _____. Size: _____. Preferred schedule: _____.",
+          schools:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for School / Educational Facility Cleaning. Location: _____. Size: _____. Frequency: _____.",
+          commercial:
+            "Hi Romagnoli Cleaning Services! I'd like a quote for Commercial Cleaning. Business type: _____. Location: _____. Size: _____.",
+        };
+        openWhatsApp(messages[key] || "Hi Romagnoli Cleaning Services! I'd like a quote please.");
+      };
+
+      window.scrollToSection = function (id) {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      };
+
+      // ========= helpers =========
+      function starString(rating) {
+        const r = Math.max(1, Math.min(5, Number(rating) || 5));
+        return "★★★★★".slice(0, r) + "☆☆☆☆☆".slice(0, 5 - r);
+      }
+
+      function formatDate(iso) {
+        try {
+          const d = new Date(iso);
+          return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+        } catch {
+          return "";
+        }
+      }
+
+      function setStatus(el, msg, type = "info") {
+        if (!el) return;
+        el.textContent = msg || "";
+        el.dataset.type = type;
+        el.style.display = msg ? "block" : "none";
+      }
+
+      // ========= Language =========
+      const I18N = {
+        en: {
+          navServices: "Services",
+          navTestimonials: "Reviews",
+          navAreas: "Areas",
+          navContact: "Contact",
+          navGallery: "Gallery",
+          navCta: "WhatsApp Quote",
+          pillText: "Luxury finish • Local service",
+          heroLine1: "A Cleaner Home,",
+          heroLine2: "A Happier Life",
+          heroLead:
+            "Premium cleaning services with a detail-focused finish. Message us on WhatsApp for availability and quotes.",
+          heroBtnQuoteText: "WhatsApp for a Quote",
+          heroBtnServices: "View Services",
+          heroBtnGallery: "View Gallery",
+          trust1: "Trusted local",
+          trust2: "Luxury finish",
+          trust3: "Flexible requests",
+          servicesTitle: "Cleaning services",
+          servicesSub: "Tap a service to send a WhatsApp message.",
+          domesticTitle: "Domestic",
+          commercialTitle: "Commercial",
+          reviewsTitle: "Customer Reviews",
+          reviewsSub: "Leave a review below. It will appear live on the website.",
+          writeReviewTitle: "Write a Review",
+          labelName: "Your name",
+          labelRating: "Rating",
+          labelReview: "Your review",
+          reviewSubmitBtn: "Submit Review",
+          latestReviewsTitle: "Latest Reviews",
+          refreshReviewsBtn: "Refresh",
+          areasTitle: "Oxford & surrounding areas",
+          areasSub: "We cover Oxford and nearby locations (approx. up to 40 minutes drive).",
+          contactTitle: "Message us on WhatsApp",
+          contactSub: "WhatsApp is the fastest way to reach us.",
+          hoursLabel: "Hours",
+          hoursValue: "Monday – Saturday: 8am – 6pm",
+          areaLabel: "Service Area",
+          areaValue: "Oxford & Surrounding Areas",
+          contactBtn: "WhatsApp for a Quote",
+          footerTag: "Local cleaning with a luxury finish.",
+          footerCta: "WhatsApp Quote",
+          footerCreditText: "Website created by",
+        },
+        it: {
+          navServices: "Servizi",
+          navTestimonials: "Recensioni",
+          navAreas: "Aree",
+          navContact: "Contatto",
+          navGallery: "Galleria",
+          navCta: "Preventivo WhatsApp",
+          pillText: "Finitura di lusso • Servizio locale",
+          heroLine1: "Una casa più pulita,",
+          heroLine2: "Una vita più felice",
+          heroLead:
+            "Servizi di pulizia premium con attenzione ai dettagli. Scrivici su WhatsApp per disponibilità e preventivi.",
+          heroBtnQuoteText: "WhatsApp per un preventivo",
+          heroBtnServices: "Vedi servizi",
+          heroBtnGallery: "Vedi galleria",
+          trust1: "Affidabile",
+          trust2: "Finitura di lusso",
+          trust3: "Richieste flessibili",
+          servicesTitle: "Servizi di pulizia",
+          servicesSub: "Tocca un servizio per inviare un messaggio WhatsApp.",
+          domesticTitle: "Casa",
+          commercialTitle: "Commerciale",
+          reviewsTitle: "Recensioni clienti",
+          reviewsSub: "Lascia una recensione. Apparirà subito sul sito.",
+          writeReviewTitle: "Scrivi una recensione",
+          labelName: "Il tuo nome",
+          labelRating: "Valutazione",
+          labelReview: "La tua recensione",
+          reviewSubmitBtn: "Invia recensione",
+          latestReviewsTitle: "Ultime recensioni",
+          refreshReviewsBtn: "Aggiorna",
+          areasTitle: "Oxford e dintorni",
+          areasSub: "Copriamo Oxford e zone vicine (circa fino a 40 minuti).",
+          contactTitle: "Scrivici su WhatsApp",
+          contactSub: "WhatsApp è il modo più veloce per contattarci.",
+          hoursLabel: "Orari",
+          hoursValue: "Lun – Sab: 8:00 – 18:00",
+          areaLabel: "Zona servita",
+          areaValue: "Oxford e dintorni",
+          contactBtn: "WhatsApp per un preventivo",
+          footerTag: "Pulizie locali con finitura di lusso.",
+          footerCta: "Preventivo WhatsApp",
+          footerCreditText: "Sito creato da",
+        },
+        pt: {
+          navServices: "Serviços",
+          navTestimonials: "Avaliações",
+          navAreas: "Áreas",
+          navContact: "Contato",
+          navGallery: "Galeria",
+          navCta: "Orçamento WhatsApp",
+          pillText: "Acabamento de luxo • Serviço local",
+          heroLine1: "Uma casa mais limpa,",
+          heroLine2: "Uma vida mais feliz",
+          heroLead:
+            "Serviços premium com atenção aos detalhes. Chame no WhatsApp para disponibilidade e orçamento.",
+          heroBtnQuoteText: "WhatsApp para Orçamento",
+          heroBtnServices: "Ver serviços",
+          heroBtnGallery: "Ver galeria",
+          trust1: "Confiável",
+          trust2: "Acabamento de luxo",
+          trust3: "Flexível",
+          servicesTitle: "Serviços de limpeza",
+          servicesSub: "Toque em um serviço para enviar mensagem no WhatsApp.",
+          domesticTitle: "Residencial",
+          commercialTitle: "Comercial",
+          reviewsTitle: "Avaliações de clientes",
+          reviewsSub: "Deixe sua avaliação. Ela aparecerá ao vivo no site.",
+          writeReviewTitle: "Escreva uma avaliação",
+          labelName: "Seu nome",
+          labelRating: "Nota",
+          labelReview: "Sua avaliação",
+          reviewSubmitBtn: "Enviar avaliação",
+          latestReviewsTitle: "Últimas avaliações",
+          refreshReviewsBtn: "Atualizar",
+          areasTitle: "Oxford e região",
+          areasSub: "Atendemos Oxford e áreas próximas (até ~40 minutos).",
+          contactTitle: "Fale conosco no WhatsApp",
+          contactSub: "WhatsApp é a forma mais rápida de contato.",
+          hoursLabel: "Horário",
+          hoursValue: "Seg – Sáb: 8h – 18h",
+          areaLabel: "Área atendida",
+          areaValue: "Oxford e região",
+          contactBtn: "WhatsApp para Orçamento",
+          footerTag: "Limpeza local com acabamento de luxo.",
+          footerCta: "Orçamento WhatsApp",
+          footerCreditText: "Site criado por",
+        },
+      };
+
+      function applyLang(lang) {
+        const t = I18N[lang] || I18N.en;
+
+        const map = {
+          navServices: "navServices",
+          navTestimonials: "navTestimonials",
+          navAreas: "navAreas",
+          navContact: "navContact",
+          navGallery: "navGallery",
+          navCta: "navCta",
+          mServices: "navServices",
+          mTestimonials: "navTestimonials",
+          mAreas: "navAreas",
+          mContact: "navContact",
+          mGallery: "navGallery",
+          mCta: "navCta",
+          pillText: "pillText",
+          heroLine1: "heroLine1",
+          heroLine2: "heroLine2",
+          heroLead: "heroLead",
+          heroBtnQuoteText: "heroBtnQuoteText",
+          heroBtnServices: "heroBtnServices",
+          heroBtnGallery: "heroBtnGallery",
+          trust1: "trust1",
+          trust2: "trust2",
+          trust3: "trust3",
+          servicesTitle: "servicesTitle",
+          servicesSub: "servicesSub",
+          domesticTitle: "domesticTitle",
+          commercialTitle: "commercialTitle",
+          reviewsTitle: "reviewsTitle",
+          reviewsSub: "reviewsSub",
+          writeReviewTitle: "writeReviewTitle",
+          labelName: "labelName",
+          labelRating: "labelRating",
+          labelReview: "labelReview",
+          reviewSubmitBtn: "reviewSubmitBtn",
+          latestReviewsTitle: "latestReviewsTitle",
+          refreshReviewsBtn: "refreshReviewsBtn",
+          areasTitle: "areasTitle",
+          areasSub: "areasSub",
+          contactTitle: "contactTitle",
+          contactSub: "contactSub",
+          hoursLabel: "hoursLabel",
+          hoursValue: "hoursValue",
+          areaLabel: "areaLabel",
+          areaValue: "areaValue",
+          contactBtn: "contactBtn",
+          footerTag: "footerTag",
+          footerCta: "footerCta",
+          footerCreditText: "footerCreditText",
+        };
+
+        Object.keys(map).forEach((id) => {
+          const el = document.getElementById(id);
+          const key = map[id];
+          if (el && t[key]) el.textContent = t[key];
+        });
+
+        // Keep dropdowns in sync
+        const s1 = document.getElementById("langSelect");
+        const s2 = document.getElementById("langSelectMobile");
+        if (s1) s1.value = lang;
+        if (s2) s2.value = lang;
+
+        localStorage.setItem("lang", lang);
+      }
+
+      // ========= main =========
+      window.addEventListener("DOMContentLoaded", () => {
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileToggle?.addEventListener("click", () => mobileMenu?.classList.toggle("open"));
+
+        // Footer year
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Language init + listeners
+        const savedLang = localStorage.getItem("lang") || "en";
+        applyLang(savedLang);
+
+        document.getElementById("langSelect")?.addEventListener("change", (e) => applyLang(e.target.value));
+        document.getElementById("langSelectMobile")?.addEventListener("change", (e) => applyLang(e.target.value));
+
+        // Init Supabase once (after DOM ready)
+        sb = initSupabase();
+
+        // Reviews elements
+        const reviewForm = document.getElementById("reviewForm");
+        const reviewName = document.getElementById("reviewName");
+        const reviewRating = document.getElementById("reviewRating");
+        const reviewMessage = document.getElementById("reviewMessage");
+        const reviewStatus = document.getElementById("reviewStatus");
+        const reviewSubmitBtn = document.getElementById("reviewSubmitBtn");
+        const reviewsContainer = document.getElementById("reviewsContainer");
+        const reviewsEmpty = document.getElementById("reviewsEmpty");
+        const refreshReviewsBtn = document.getElementById("refreshReviewsBtn");
+        const charCount = document.getElementById("charCount");
+
+        reviewMessage?.addEventListener("input", () => {
+          if (charCount) charCount.textContent = String(reviewMessage.value.length);
+        });
+
+        function renderReviews(items) {
+          if (!reviewsContainer || !reviewsEmpty) return;
+          reviewsContainer.innerHTML = "";
+
+          if (!items || items.length === 0) {
+            reviewsEmpty.hidden = false;
+            return;
+          }
+          reviewsEmpty.hidden = true;
+
+          for (const row of items) {
+            const card = document.createElement("div");
+            card.className = "review-card";
+
+            const stars = document.createElement("div");
+            stars.className = "review-stars";
+            stars.textContent = starString(row.rating);
+
+            const top = document.createElement("div");
+            top.className = "review-top";
+
+            const name = document.createElement("div");
+            name.className = "review-name";
+            name.textContent = row.name || "Anonymous";
+
+            const date = document.createElement("div");
+            date.className = "review-date";
+            date.textContent = row.created_at ? formatDate(row.created_at) : "";
+
+            top.appendChild(name);
+            top.appendChild(date);
+
+            const msg = document.createElement("p");
+            msg.className = "review-message";
+            msg.textContent = row.message || "";
+
+            card.appendChild(stars);
+            card.appendChild(top);
+            card.appendChild(msg);
+
+            reviewsContainer.appendChild(card);
+          }
+        }
+
+        async function loadReviews() {
+          if (!sb) {
+            setStatus(reviewStatus, "Supabase is not configured (check your anon key).", "error");
+            renderReviews([]);
+            return;
+          }
+
+          try {
+            const { data, error } = await sb
+              .from("reviews")
+              .select("id,name,rating,message,created_at")
+              .order("created_at", { ascending: false })
+              .limit(12);
+
+            if (error) throw error;
+            setStatus(reviewStatus, "", "info");
+            renderReviews(data || []);
+          } catch (err) {
+            console.error("loadReviews error:", err);
+            renderReviews([]);
+            if (reviewsEmpty) {
+              reviewsEmpty.hidden = false;
+              reviewsEmpty.textContent = "Reviews couldn’t load right now.";
+            }
+          }
+        }
+
+        refreshReviewsBtn?.addEventListener("click", loadReviews);
+
+        reviewForm?.addEventListener("submit", async (e) => {
+          // ✅ prevents jumping to top
+          e.preventDefault();
+          e.stopPropagation();
+
+          setStatus(reviewStatus, "", "info");
+
+          if (!sb) {
+            setStatus(reviewStatus, "Supabase is not configured yet (or library didn’t load).", "error");
+            return;
+          }
+
+          const name = (reviewName?.value || "").trim();
+          const message = (reviewMessage?.value || "").trim();
+          const rating = Number(reviewRating?.value || 5);
+
+          if (!name || !message) {
+            setStatus(reviewStatus, "Please enter your name and review.", "error");
+            return;
+          }
+
+          if (reviewSubmitBtn) {
+            reviewSubmitBtn.disabled = true;
+            reviewSubmitBtn.textContent = "Submitting...";
+          }
+
+          try {
+            const { error } = await sb.from("reviews").insert([{ name, rating, message }]);
+            if (error) throw error;
+
+            reviewForm.reset();
+            if (charCount) charCount.textContent = "0";
+
+            setStatus(reviewStatus, "Thank you! Your review is now live ✨", "success");
+            await loadReviews();
+          } catch (err) {
+            console.error("submit review error:", err);
+
+            // If this happens, it's usually RLS policy
+            setStatus(
+              reviewStatus,
+              "Couldn’t submit. If this keeps happening, we need to enable Supabase RLS policies for public insert/select.",
+              "error"
+            );
+          } finally {
+            if (reviewSubmitBtn) {
+              reviewSubmitBtn.disabled = false;
+              reviewSubmitBtn.textContent = "Submit Review";
+            }
+          }
+        });
+
+        loadReviews();
+      });
+    </script>
+  </body>
+</html>

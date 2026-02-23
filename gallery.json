@@ -1,0 +1,24 @@
+[
+  {
+    "image": "images/end-of-tenancy-oxford.jpg",
+    "alt": "End of tenancy kitchen cleaning in Oxford",
+    "service": "End of Tenancy",
+    "date": "2026-02-20",
+    "captions": {
+      "en": "End of tenancy deep clean in Oxford – sparkling kitchen finish ✨",
+      "pt": "Limpeza profunda de fim de contrato em Oxford – cozinha impecável ✨",
+      "it": "Pulizia di fine contratto a Oxford – cucina splendente ✨"
+    }
+  },
+  {
+    "image": "images/office-cleaning-oxford.jpg",
+    "alt": "Office cleaning service in Oxford",
+    "service": "Office Cleaning",
+    "date": "2026-02-18",
+    "captions": {
+      "en": "Office refresh before Monday opening.",
+      "pt": "Limpeza de escritório antes da abertura de segunda-feira.",
+      "it": "Pulizia ufficio prima dell'apertura di lunedì."
+    }
+  }
+]
