@@ -12,6 +12,11 @@
 /* ===== Global / overflow fix (removes the < > arrows) ===== */
 *{ box-sizing:border-box; }
 html, body { width:100%; }
+
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body{
   margin:0;
   font-family: Arial, sans-serif;
@@ -72,6 +77,27 @@ img{max-width:100%;display:block}
   font-size:14px;
   color:#111;
   text-decoration:none;
+}
+
+/* ✅ Force <a> to render exactly like the buttons (mobile fix) */
+.nav-links a.nav-link{
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: geometricPrecision;
+  .nav-links a.nav-link{
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: geometricPrecision;
+  display: inline-block; /* ✅ add this */
+}
 }
 .nav-links button:hover,
 .nav-links a:hover{
@@ -386,7 +412,27 @@ img{max-width:100%;display:block}
 }
 .hint{display:block;margin-top:6px;color:rgba(255,255,255,.65)}
 
-.review-cards{display:grid;gap:14px}
+.review-cards{
+  display:grid;
+  gap:14px;
+
+  /* NEW: fixed height + scroll */
+  max-height: 520px;     /* tweak if you want */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Optional: gold scrollbar (Chrome/Edge) */
+.review-cards::-webkit-scrollbar { width: 10px; }
+.review-cards::-webkit-scrollbar-thumb{
+  background: rgba(212,175,55,.35);
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,.35);
+}
+.review-cards::-webkit-scrollbar-track{
+  background: rgba(255,255,255,.06);
+  border-radius: 999px;
+}
 .review-card{
   background:#0b0b0f;
   border:1px solid rgba(212,175,55,.18);
