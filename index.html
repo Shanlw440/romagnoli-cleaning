@@ -12,28 +12,66 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <header class="header" id="siteHeader">
-      <div class="container">
-        <div class="nav">
-          <a class="brand" href="#top">
-            <img src="./Logo.jpeg" alt="Romagnoli Cleaning Services Logo" />
-            <span id="brandName">Romagnoli Cleaning Services</span>
-          </a>
+   <!-- Header -->
+<header class="header" id="siteHeader">
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#top">
+        <img src="./Logo.jpeg" alt="Romagnoli Cleaning Services Logo" />
+        <span id="brandName">Romagnoli Cleaning Services</span>
+      </a>
 
-          <nav class="nav-links">
-  <button type="button" onclick="scrollToSection('services')" id="navServices">Services</button>
-  <button type="button" onclick="scrollToSection('testimonials')" id="navTestimonials">Reviews</button>
-  <button type="button" onclick="scrollToSection('areas')" id="navAreas">Areas</button>
-  <button type="button" onclick="scrollToSection('contact')" id="navContact">Contact</button>
+      <!-- Desktop nav -->
+      <nav class="nav-links">
+        <button type="button" onclick="scrollToSection('services')" id="navServices">Services</button>
+        <button type="button" onclick="scrollToSection('testimonials')" id="navTestimonials">Reviews</button>
+        <button type="button" onclick="scrollToSection('areas')" id="navAreas">Areas</button>
+        <button type="button" onclick="scrollToSection('contact')" id="navContact">Contact</button>
 
-  <a class="nav-link" href="https://www.instagram.com/romagnolicleaningservices" target="_blank" rel="noopener">
-    Instagram
-  </a>
+        <a class="nav-link" href="https://www.instagram.com/romagnolicleaningservices" target="_blank" rel="noopener">
+          Instagram
+        </a>
 
-  <a class="nav-link" href="./gallery.html" id="navGallery">Gallery</a>
-  ...
-</nav>
+        <a class="nav-link" href="./gallery.html" id="navGallery">Gallery</a>
+
+        <!-- Language (desktop) -->
+        <select id="langSelect" class="lang-select" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="it">IT</option>
+          <option value="pt">PT-BR</option>
+        </select>
+
+        <button type="button" class="cta" onclick="waGeneral()" id="navCta">WhatsApp Quote</button>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" type="button">☰</button>
+    </div>
+
+    <!-- Mobile menu (ONLY ONE) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button type="button" onclick="scrollToSection('services')" id="mServices">Services</button>
+      <button type="button" onclick="scrollToSection('testimonials')" id="mTestimonials">Reviews</button>
+      <button type="button" onclick="scrollToSection('areas')" id="mAreas">Areas</button>
+      <button type="button" onclick="scrollToSection('contact')" id="mContact">Contact</button>
+
+      <a class="mobile-link" href="https://www.instagram.com/romagnolicleaningservices" target="_blank" rel="noopener">
+        Instagram
+      </a>
+
+      <a class="mobile-link" href="./gallery.html" id="mGallery">Gallery</a>
+
+      <!-- Language (mobile) -->
+      <select id="langSelectMobile" class="lang-select mobile-lang" aria-label="Language">
+        <option value="en">EN</option>
+        <option value="it">IT</option>
+        <option value="pt">PT-BR</option>
+      </select>
+
+      <button type="button" class="cta full" onclick="waGeneral()" id="mCta">WhatsApp Quote</button>
+    </div>
+  </div>
+</header>
 
             <!-- ✅ Language (homepage too) -->
             <select id="langSelect" class="lang-select" aria-label="Language">
