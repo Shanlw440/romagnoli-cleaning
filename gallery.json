@@ -1,7 +1,7 @@
 [
   {
-    "image": "images/end-of-tenancy-oxford.jpg",
-    "alt": "End of tenancy kitchen cleaning in Oxford",
+    "image": "images/kitchen-01.jpg",
+    "alt": "Luxury kitchen cleaning in Oxford",
     "service": "End of Tenancy",
     "date": "2026-02-20",
     "captions": {
@@ -11,14 +11,91 @@
     }
   },
   {
-    "image": "images/office-cleaning-oxford.jpg",
-    "alt": "Office cleaning service in Oxford",
+    "image": "images/office-floor-01.jpg",
+    "alt": "Office carpet cleaning in Oxford",
     "service": "Office Cleaning",
     "date": "2026-02-18",
     "captions": {
       "en": "Office refresh before Monday opening.",
       "pt": "Limpeza de escritório antes da abertura de segunda-feira.",
       "it": "Pulizia ufficio prima dell'apertura di lunedì."
+    }
+  },
+  {
+    "image": "images/bathroom-01.jpg",
+    "alt": "Bathroom cleaning service in Oxford",
+    "service": "Bathroom",
+    "date": "2026-02-17",
+    "captions": {
+      "en": "Bathroom reset: polished surfaces and a fresh finish ✨",
+      "pt": "Banheiro renovado: superfícies polidas e acabamento impecável ✨",
+      "it": "Bagno rinnovato: superfici lucide e finitura impeccabile ✨"
+    }
+  },
+  {
+    "image": "images/bedroom-01.jpg",
+    "alt": "Bedroom cleaning in Oxford",
+    "service": "Bedroom",
+    "date": "2026-02-16",
+    "captions": {
+      "en": "Bedroom refresh: tidy, dust-free, and ready to relax.",
+      "pt": "Quarto renovado: organizado, sem poeira e pronto para relaxar.",
+      "it": "Camera rinnovata: ordinata, senza polvere e pronta per rilassarsi."
+    }
+  },
+  {
+    "image": "images/bedroom-02.jpg",
+    "alt": "Bedroom deep clean in Oxford",
+    "service": "Bedroom",
+    "date": "2026-02-16",
+    "captions": {
+      "en": "Deep clean details that make the difference.",
+      "pt": "Detalhes da limpeza profunda que fazem a diferença.",
+      "it": "I dettagli della pulizia profonda fanno la differenza."
+    }
+  },
+  {
+    "image": "images/dining-room-01.jpg",
+    "alt": "Dining room cleaning in Oxford",
+    "service": "Dining Room",
+    "date": "2026-02-15",
+    "captions": {
+      "en": "Dining area ready for guests: clean lines and a luxury finish ✨",
+      "pt": "Sala de jantar pronta para visitas: tudo limpo e com acabamento de luxo ✨",
+      "it": "Sala da pranzo pronta per gli ospiti: pulita e con finitura di lusso ✨"
+    }
+  },
+  {
+    "image": "images/office-floor-02.jpg",
+    "alt": "Office floor cleaning in Oxford",
+    "service": "Office Cleaning",
+    "date": "2026-02-14",
+    "captions": {
+      "en": "Another office space refreshed and ready for the week.",
+      "pt": "Mais um escritório renovado e pronto para a semana.",
+      "it": "Un altro ufficio rinnovato e pronto per la settimana."
+    }
+  },
+  {
+    "image": "images/office-floor-03.jpg",
+    "alt": "Commercial floor cleaning service",
+    "service": "Commercial",
+    "date": "2026-02-14",
+    "captions": {
+      "en": "Commercial clean with a professional finish.",
+      "pt": "Limpeza comercial com acabamento profissional.",
+      "it": "Pulizia commerciale con finitura professionale."
+    }
+  },
+  {
+    "image": "images/office-floor-04.png",
+    "alt": "Office floor cleaning result",
+    "service": "Commercial",
+    "date": "2026-02-14",
+    "captions": {
+      "en": "Before/after vibes: clean, bright, and ready to go ✨",
+      "pt": "Antes/depois: limpo, claro e pronto ✨",
+      "it": "Prima/dopo: pulito, luminoso e pronto ✨"
     }
   }
 ]
